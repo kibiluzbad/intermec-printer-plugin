@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    id="com.alunny.foo"
+    id="com.ctis.phonegap.IntermecPrinter"
     version="0.0.1">
     
     <engines>
@@ -19,14 +19,21 @@
     </js-module>
     
     <!-- android -->
-    <platform name="android">
+    <platform name="android">        
+        <source-file src="src/android/IntermecPrinter.java" target-dir="src/com/ctis/cordova/plugin" />
+        
+        <source-file src="src/android/libs/LinePrinter.jar" target-dir="libs/" />
+        
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.BLUETOOTH_PRIVILEGED" />
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />            
+        </config-file>
+        
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="IntermecPrinter"> 
                 <param name="android-package" value="com.ctis.cordova.plugin.IntermecPrinter"/>
             </feature>
-        </config-file>
-
-        <source-file src="src/android/IntermecPrinter.java" target-dir="src/com/ctis/cordova/plugin" />        
+        </config-file>        
     </platform>
-
+     
 </plugin>
