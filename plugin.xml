@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="com.alunny.foo"
+    version="0.0.1">
+    
+    <engines>
+        <engine name="cordova" version=">=3.1.0" />    
+    </engines>
+    
+    <name>IntermecPrinter</name>
+    <description>Plugin for Intermec Bluetooth Printers</description>
+    <author>Leonardo Cardoso</author>
+    <keywords>printer, bluetooth, intermec</keywords>
+    <license>Apache 2.0</license>
+    
+    <js-module src="www/IntermecPrinter.js" name="IntermecPrinter">
+        <clobbers target="window.print" />
+    </js-module>
+    
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="IntermecPrinter"> 
+                <param name="android-package" value="com.ctis.cordova.plugin.IntermecPrinter"/>
+            </feature>
+        </config-file>
+
+        <source-file src="src/android/IntermecPrinter.java" target-dir="src/com/ctis/cordova/plugin" />        
+    </platform>
+
+</plugin>
