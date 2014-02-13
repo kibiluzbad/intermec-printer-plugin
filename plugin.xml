@@ -5,7 +5,7 @@
     version="0.0.1">
     
     <engines>
-        <engine name="cordova" version=">=3.1.0" />    
+        <engine name="cordova" version=">=3.3.0" />    
     </engines>
     
     <name>IntermecPrinter</name>
@@ -14,8 +14,8 @@
     <keywords>printer, bluetooth, intermec</keywords>
     <license>Apache 2.0</license>
     
-    <js-module src="www/IntermecPrinter.js" name="IntermecPrinter">
-        <clobbers target="window.print" />
+    <js-module src="www/IntermecPrinter.js" name="Printer">
+        <clobbers target="navigator.printer" />
     </js-module>
     
     <!-- android -->

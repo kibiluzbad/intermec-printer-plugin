@@ -18,23 +18,23 @@
  * under the License.
  *
 */
+var argscheck = require('cordova/argscheck'),
+    utils = require('cordova/utils'),
+    exec = require('cordova/exec')
 
-var exec = require('cordova/exec');
-var channel = require('cordova/channel');
-var modulemapper = require('cordova/modulemapper');
-var urlutil = require('cordova/urlutil');
-
-var onError = function(){
-    alert("Error, document not printed");
+var onError = function(message){
+    alert(message);
 };
 
-var onSuccess = function(){
-    alert("Document printed!");
+var onSuccess = function(data){
+    alert(data);
 };
 
-window.print = function(){
-    exec(onSuccess, onError, "IntermecPrinter", "print", []);
-};
+var printerExport = {
+    print: function(content){
+        alert(content);
+        exec(onSuccess, onError, "IntermecPrinter", "print", [content]);
+    }
+}
 
-
-
+module.exports = printerExport;
