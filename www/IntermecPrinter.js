@@ -20,7 +20,7 @@
 */
 var argscheck = require('cordova/argscheck'),
     utils = require('cordova/utils'),
-    exec = require('cordova/exec')
+    exec = require('cordova/exec');
 
 var onError = function(message){
     alert(message);
@@ -35,6 +35,6 @@ var printerExport = {
         alert(content);
         exec(onSuccess, onError, "IntermecPrinter", "print", [content]);
     }
-}
+};
 
 module.exports = printerExport;
