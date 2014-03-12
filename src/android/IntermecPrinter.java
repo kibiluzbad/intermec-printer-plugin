@@ -51,10 +51,11 @@ public class IntermecPrinter
         if (action.equals("print")) {
             try{                
                 String htmlContent = args.getString(0);
+                String macaddress = args.getString(1);
                 
                 PrintTask task = new PrintTask();
     
-                task.execute("00:06:66:09:3A:9B", htmlContent);
+                task.execute(macaddress, htmlContent);
             }catch(Exception e){
                 cb.error(e.getMessage());
             }

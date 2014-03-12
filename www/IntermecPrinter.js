@@ -31,9 +31,9 @@ var onSuccess = function(data){
 };
 
 var printerExport = {
-    print: function(content){
-        alert(content);
-        exec(onSuccess, onError, "IntermecPrinter", "print", [content]);
+    print: function(content, macaddress){
+        
+        exec(onSuccess, onError, "IntermecPrinter", "print", [content, macaddress]);
     }
 };
 
